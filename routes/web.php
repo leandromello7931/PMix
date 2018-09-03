@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('mistura', 'MisturaController');
+
+
+Route::get('/', 'MisturaController@index');
