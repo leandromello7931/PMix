@@ -1,0 +1,35 @@
+table ingredientes
+Id  Nome    Custo
+1   Osso    0.56
+2   Soja    0.85
+3   Peixe   0.46
+
+table nutrientes
+Id  Nome
+1   Proteína
+2   Cálcio
+
+table restricoes
+Id  Nome
+1   Qtd Minima
+
+table mistura
+Id  Nome
+
+table itens_mistura
+ID  ID_Mistura	     Ingred	  Nutrien	VIngredXNutr
+1       1				1		1			0.2		
+2       1				1		2			0.6
+3       1				2		1			
+4       1				2		2		
+5       1				3		1		
+6       1				3		2
+7       1				3		3		
+
+
+table misturaxRestricoes
+ID_Mistura	 Nutrien	ID_Restricao	vRestricao
+1				1			1				0.3
+1				2			1				0.5		
+
+

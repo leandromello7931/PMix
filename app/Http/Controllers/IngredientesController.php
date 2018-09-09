@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Ingredientes;
+
 class IngredientesController extends Controller
 {
     /**
@@ -34,7 +36,11 @@ class IngredientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'nome' => $request('nome'),
+            'custo' => $request('custo')
+        ];
+        Ingredientes::create($data);
     }
 
     /**

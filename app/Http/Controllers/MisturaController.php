@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mistura;
 
 class MisturaController extends Controller
 {
@@ -13,7 +14,10 @@ class MisturaController extends Controller
      */
     public function index()
     {
-        return view('mistura.index');
+        return $list_mistura = Mistura::paginate(15);
+        return view('mistura.index', [
+            'misturas' => $list_mistura
+        ]);
     }
 
     /**
