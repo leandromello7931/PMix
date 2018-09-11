@@ -14,7 +14,7 @@ class MisturaController extends Controller
      */
     public function index()
     {
-        return $list_mistura = Mistura::paginate(15);
+        $list_mistura = Mistura::paginate(15);
         return view('mistura.index', [
             'misturas' => $list_mistura
         ]);
