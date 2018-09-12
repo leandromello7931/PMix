@@ -3972,7 +3972,8 @@ input.mdl-button[type="submit"] {
     width: 40px; }
   .mdl-button--fab .mdl-button__ripple-container {
     border-radius: 50%;
-    -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+    -webkit-mask-image: -webkit-radial-gradient(circle, white, black); 
+    mask-image: radial-gradient(circle, white, black); }
   .mdl-button--fab:active {
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     background-color: rgba(158,158,158, 0.40); }
@@ -4019,7 +4020,9 @@ input.mdl-button[type="submit"] {
       left: 0px; }
   .mdl-button--icon .mdl-button__ripple-container {
     border-radius: 50%;
-    -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+    -webkit-mask-image: -webkit-radial-gradient(circle, white, black); 
+    mask-image: radial-gradient(circle, white, black);
+    }
 
 .mdl-button__ripple-container {
   display: block;
@@ -4612,7 +4615,8 @@ input.mdl-button[type="submit"] {
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); 
+  mask-image: radial-gradient(circle, white, black);}
   .mdl-checkbox__ripple-container .mdl-ripple {
     background: rgb(255, 82, 82); }
   fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container,
@@ -6220,7 +6224,8 @@ input.mdl-button[type="submit"] {
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); 
+  mask-image: -webkit-radial-gradient(circle, white, black);}
   .mdl-icon-toggle__ripple-container .mdl-ripple {
     background: rgb(97,97,97); }
   .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container {
@@ -7585,6 +7590,7 @@ input.mdl-button[type="submit"] {
 
 .mdl-layout__content {
   -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
   position: relative;
   display: inline-block;
   overflow-y: auto;
@@ -8023,7 +8029,8 @@ input.mdl-button[type="submit"] {
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); 
+  mask-image: radial-gradient(circle, white, black); }
   .mdl-radio__ripple-container .mdl-ripple {
     background: rgba(0, 188, 212, 0.8); }
   fieldset[disabled] .mdl-radio .mdl-radio__ripple-container,
@@ -9336,6 +9343,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   cursor: pointer;
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+  mask-image: radial-gradient(circle, white, black);
   transition-duration: 0.40s;
   transition-timing-function: step-end;
   transition-property: left; }
@@ -11159,7 +11167,8 @@ main {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
 
 .mdl-checkbox__tick-outline {
-  -webkit-mask: url("../images/tick-mask.svg"); }
+  -webkit-mask: url("../images/tick-mask.svg"); 
+  mask: url("../images/tick-mask.svg"); }
 
 .mdl-checkbox--colored-yellow .mdl-ripple {
   background-color: rgba(255, 193, 7, 0.8); }
@@ -11852,8 +11861,8 @@ a {
   padding-right: 30px; }
   .form .mdl-cell.mdl-textfield.is-focused .mdl-textfield__label:after {
     width: calc(100% - 30px); }
-  .form .mdl-cell:last-of-type {
-    padding-right: 0; }
+  /* .form .mdl-cell:last-of-type {
+    padding-right: 0; } */
     .form .mdl-cell:last-of-type.mdl-textfield.is-focused .mdl-textfield__label:after {
       width: 100%; }
 

@@ -25,10 +25,15 @@
             </table>
         </div> --}}
 
-        <div class="mdl-grid mdl-cell mdl-cell--9-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone mdl-cell--top">
+        {{-- <div class="mdl-grid mdl-cell mdl-cell--8-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone mdl-cell--top "> --}}
+                <a href="/mistura/create" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored-blue">
+                    <i class="material-icons">create</i>
+                    Criar mistura
+                </a>
                 <!-- Table-->
                 <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone ">
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp projects-table">
+                    {{-- <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp projects-table"> --}}
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                         <thead>
                         <tr>
                             <th class="mdl-data-table__cell--non-numeric">Project</th>
@@ -98,28 +103,5 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            <div class="mdl-grid mdl-cell mdl-cell--3-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone mdl-cell--top">
-                <!-- ToDo_widget-->
-                <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--2-col-phone">
-                    <div class="mdl-card mdl-shadow--2dp todo">
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">To-do list</h2>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <ul class="mdl-list">
-
-                            </ul>
-                        </div>
-                        <div class="mdl-card__actions">
-                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">remove selected</button>
-                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-shadow--8dp mdl-button--colored ">
-                                <i class="material-icons mdl-js-ripple-effect">add</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            {{-- </div> --}}
 @endsection

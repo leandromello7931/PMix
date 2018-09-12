@@ -27,7 +27,7 @@ class MisturaController extends Controller
      */
     public function create()
     {
-        //
+        return view('mistura.add_mistura');
     }
 
     /**
