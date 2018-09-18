@@ -1,1 +1,20 @@
 
+
+@import "~material-components-web/material-components-web";
+ 
+// @import "@material/button/mdc-button";
+// @import "@material/textfield/mdc-text-field";
+// @import "@material/floating-label/mdc-floating-label";
+// @import "@material/chips/mdc-chips";
+// @import "@material/layout-grid/mdc-layout-grid";
+// @import "@material/typography/mdc-typography";
+
+.navbar-laravel { 
+  background-color: #fff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.foo-button {
+  @include mdc-button-ink-color(teal);
+  @include mdc-states(teal);
+}

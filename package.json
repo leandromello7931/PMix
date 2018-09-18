@@ -12,7 +12,9 @@
     "devDependencies": {
         "axios": "^0.18",
         "cross-env": "^5.1",
-        "laravel-mix": "^2.0",
-        "lodash": "^4.17.4"
+        "laravel-mix": "^2.0"
+    },
+    "dependencies": {
+        "material-components-web": "^0.39.3"
     }
 }
