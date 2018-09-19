@@ -1,49 +1,50 @@
 @extends('template.app')
 
 @section('content')
-<main class="mdl-layout__content ">
-    <div class="mdl-card mdl-shadow--2dp employer-form" action="#">
-        <div class="mdl-card__title">
-            <h2>Dados da Mistura</h2>
-            <div class="mdl-card__subtitle">Please complete the form</div>
-        </div>
-
-        <div class="mdl-card__supporting-text">
-            <form action="#" class="form">
-                <div class="form__article"> 
-                    <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="firstName" value=""/>
-                        <label class="mdl-textfield__label" for="firstName">Digite um nome para a Mistura</label>
+<form action="{{ action('MisturaController@store')}}" method="POST">
+        {{csrf_field()}}
+                <h5 class="mdc-typography-base	mdc-typography--headline5	">Ingredientes</h5>
+                <div class="crane-field parent-node ">
+                    <div class="w100 crane-text-field mdc-text-field mdl-chipfield mdc-text-field--box" id="ingredientes">
+                        <input type="hidden" class="mdl-chipfield__input" name="ingredientes" value="">
+                        <input class="mdl-textfield__input crane-text-field__input mdc-text-field__input" id="crane-name-input"
+                                 type="text" >
+                        <label class="crane-floating-label mdc-floating-label" for="crane-name-input">
+                            Name
+                        </label>
+                        <div class="mdc-line-ripple">sada</div>
                     </div>
-
-                    <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="firstName" value=""/>
-                            <label class="mdl-textfield__label" for="firstName">Ingredientes</label>
-                        </div>
-
-                        <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="secondName" value=""/>
-                            <label class="mdl-textfield__label" for="secondName">Nutrientes</label>
-                        </div>
-
-                        <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="secondName" value=""/>
-                            <label class="mdl-textfield__label" for="secondName">Nutrientes</label>
-                        </div>
-                    </div>
-
-                    
                 </div>
 
-
-                <div class="form__action">
-                    <button id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                        Submit
-                    </button>
+                <h5 class="mdc-typography-base	mdc-typography--headline5	">Nutrientes</h5>
+                <div class="crane-field parent-node ">
+                    <div class="w100 crane-text-field mdc-text-field mdl-chipfield mdc-text-field--box" id="nutrientes">
+                        <input type="hidden" class="mdl-chipfield__input" name="nutrientes" value="">
+                        <input class="mdl-textfield__input crane-text-field__input mdc-text-field__input" id="crane-name-input"
+                                 type="text" >
+                        <label class="crane-floating-label mdc-floating-label" for="crane-name-input">
+                            Name
+                        </label>
+                        <div class="mdc-line-ripple">sada</div>
+                    </div>
                 </div>
-            </form>
-        </div>
+                
+                <h5 class="mdc-typography-base	mdc-typography--headline5	">Restrições</h5>
+                <div class="crane-field parent-node ">
+                        <div class="w100 crane-text-field mdc-text-field mdl-chipfield mdc-text-field--box" id="restricoes">
+                            <input type="hidden" class="mdl-chipfield__input" name="restricoes" value="">
+                            <input class="mdl-textfield__input crane-text-field__input mdc-text-field__input" id="crane-name-input"
+                                     type="text" >
+                            <label class="crane-floating-label mdc-floating-label" for="crane-name-input">
+                                Name
+                            </label>
+                            <div class="mdc-line-ripple">sada</div>
+                        </div>
+                    </div>
+            <button type="submit" class="foo-button mdc-button">
+                Button
+            </button>
+          </div>
     </div>
-</main>
+  </form>
 @endsection

@@ -1,11 +1,12 @@
 @extends('template.app')
 
 @section('content')
+
         {{-- <div class="mdl-grid mdl-cell mdl-cell--8-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone mdl-cell--top "> --}}
-                <button class="mdc-button mdc-button--raised">
+                <a href={{('/mistura/create')}} class="mdc-button mdc-button--raised">
                     <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
                     Nova Mistura
-              </button>
+                </a>
                 <!-- Table-->
                 <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone ">
                     {{-- <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp projects-table"> --}}

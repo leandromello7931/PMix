@@ -28,6 +28,25 @@
           .app-bar {
             position: absolute;
           }
+          .w100{
+            width: 100%;
+          }
+          .mdc-chip{
+            margin-bottom: 5px;
+          }
+          .mdl-chip__action{
+            margin-left: 5px;
+            margin-right: 0px;
+		      }
+
+          .mdc-typography-base{
+            margin-bottom: 5px;
+          }
+          @media (min-width: 840px) {
+            .mdc-layout-grid__cell:first-child {
+              grid-column-start: 4;
+            } 
+          }
         </style>
     </head>
     <body>
@@ -48,6 +67,8 @@
             </main>
         </div>
         
-        <script src="{{ asset('js/app.js') }}"></script>
+		<script src="{{ asset('js/app.js') }}"></script>
+		<script src="{{ asset('js/mdl-chips-input.js') }}"></script>
+		<script src="{{asset('js/demo.js')}}"></script>
         </body>
 </html>

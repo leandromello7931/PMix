@@ -11,6 +11,7 @@ require ("material-components-web/index");
  import {MDCList} from "@material/list";
  import {MDCDrawer} from "@material/drawer";
  import {MDCTopAppBar} from "@material/top-app-bar";
+ import {MDCTextField} from '@material/textfield';
 // import {MDCTextField} from '@material/textfield';
 // import {MDCChipSet} from '@material/chips';
 // import {MDCFloatingLabel} from '@material/floating-label';
@@ -22,6 +23,10 @@ require ("material-components-web/index");
 //   new MDCTextField(textFieldEl);
 // });
 
+const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+textFieldElements.forEach((textFieldEl) => {
+  new MDCTextField(textFieldEl);
+});
 
 const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar'));
 topAppBar.setScrollTarget(document.getElementById('main-content'));

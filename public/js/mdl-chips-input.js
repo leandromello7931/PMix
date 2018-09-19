@@ -104,12 +104,12 @@
 
     MaterialChipInput.prototype.keyDown_ = function(event) {
         var code = event.which || event.keyCode;
-        if(code === 8 && !this.input_.value) {
-            // remove last tag if input is empty
-            if(this.element_.children.length > 1) {
-                this.element_.children[this.element_.children.length - 2].remove();
-            }
-        }
+        // if(code === 8 && !this.input_.value) {
+        //     // remove last tag if input is empty
+        //     if(this.element_.children.length > 1) {
+        //         this.element_.children[this.element_.children.length - 2].remove();
+        //     }
+        // }
         var isEnter = code === 13;
         var isArrow = this.results_ && (code === 40 || code === 38);
         if(isEnter || isArrow) {
