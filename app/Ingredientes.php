@@ -13,4 +13,9 @@ class Ingredientes extends Model
     ];
 
     protected $table = 'ingredientes';
+
+    public function misturas(){
+        return $this->BelongsToMany(Mistura::class);
+    }
+
 }

@@ -12,4 +12,8 @@ class Nutrientes extends Model
     ];
 
     protected $table = 'nutrientes';
+
+    public function misturas(){
+        return $this->BelongsToMany(Mistura::class);
+    }
 }

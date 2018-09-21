@@ -13,11 +13,9 @@ class Mistura extends Model
 
     protected $table = 'misturas';
 
-    public function itensMistura(){
-        return $this->hasMany(ItensMistura::class, 'id_mistura');
+    public function comments()
+    {
+        return $this->hasMany('App\ItensMistura', 'id_mistura', 'id');
     }
 
-    public function restricoesMistura(){
-        return $this->hasMany(RestricoesMistura::class, 'id_mistura');
-    }
 }

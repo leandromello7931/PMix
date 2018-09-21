@@ -89,7 +89,18 @@ class MisturaController extends Controller
             }
         }
 
-        
+        //insert into misturaRestricao
+        foreach($idNutrientes as $nutriente_item){
+            foreach($idRestricoes as $restricao_item){
+                DB::table('misturas_restricoes')->insert([
+                    'id_mistura' => $idMistura,
+                    'id_nutriente' => $nutriente_item->id,
+                    'id_restricao' => $restricao_item->id,
+                    'valor_restricao' => 0
+                ]);
+            }
+        }
+        return redirect()->action('MisturaController@edit', ['id' => $idMistura]);
     }
 
     /**
@@ -111,7 +122,8 @@ class MisturaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mistura = Mistura::find($id);
+        return view('mistura.add_itens_mistura')->with('mistura', $mistura);
     }
 
     /**
