@@ -11,5 +11,5 @@ class Restricoes extends Model
         'nome'
     ];
 
-    protected $table = 'nutrientes';
+    protected $table = 'restricoes';
 }
