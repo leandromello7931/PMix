@@ -4,13 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mistura extends Model
+class Restricao extends Model
 {
     protected $fillable = [
         'id', 
         'nome'
     ];
 
-    protected $table = 'misturas';
-
+    protected $table = 'restricoes';
 }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class NutrientesController extends Controller
+use App\Ingrediente;
+
+class IngredienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +36,11 @@ class NutrientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'nome' => $request('nome'),
+            'custo' => $request('custo')
+        ];
+        Ingredientes::create($data);
     }
 
     /**

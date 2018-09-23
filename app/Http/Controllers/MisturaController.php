@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mistura;
-use App\Ingredientes;
-use App\Nutrientes;
-use App\Restricoes;
+use App\Ingrediente;
+use App\Nutriente;
+use App\Restricao;
+use App\ItemMistura;
 use DB;
 
 class MisturaController extends Controller
@@ -45,7 +46,7 @@ class MisturaController extends Controller
     {
         // insert into ingredientes table
         foreach(explode(',', $request->ingredientes) as $ingredientes){
-            $idIngredientes[] = Ingredientes::firstOrCreate([
+            $idIngredientes[] = Ingrediente::firstOrCreate([
                 'nome' => $ingredientes,
                 'custo' => 0
                 ]);
@@ -54,7 +55,7 @@ class MisturaController extends Controller
         
         //insert into table nutrientes
         foreach(explode(',', $request->nutrientes) as $nutrientes){
-            $idNutrientes[] = Nutrientes::firstOrCreate(
+            $idNutrientes[] = Nutriente::firstOrCreate(
                 ['nome' => $nutrientes]
             );
         }
@@ -65,7 +66,7 @@ class MisturaController extends Controller
 
         //insert into table restricoes
         foreach(explode(',', $request->restricoes) as $restricoes){
-            $idRestricoes[] = Restricoes::firstOrCreate(
+            $idRestricoes[] = Restricao::firstOrCreate(
                 ['nome' => $restricoes]
             );
         }
@@ -77,7 +78,7 @@ class MisturaController extends Controller
             ['nome' => $request->nomeMistura]
         );
         
-        //insert into itens mistura
+        //insert into item mistura
         foreach( $idIngredientes as $ingrediente_item){
             foreach($idNutrientes as $nutriente_item){
                 DB::table('itens_mistura')->insert([
@@ -100,7 +101,7 @@ class MisturaController extends Controller
                 ]);
             }
         }
-        return redirect()->action('MisturaController@edit', ['id' => $idMistura]);
+        return redirect()->action('ItemMisturaController@edit', ['id' => $idMistura]);
     }
 
     /**

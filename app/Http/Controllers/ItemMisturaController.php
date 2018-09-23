@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Ingredientes;
+use App\ItemMistura;
 
-class IngredientesController extends Controller
+class ItemMisturaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,11 +36,7 @@ class IngredientesController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [
-            'nome' => $request('nome'),
-            'custo' => $request('custo')
-        ];
-        Ingredientes::create($data);
+        //
     }
 
     /**
@@ -62,7 +58,10 @@ class IngredientesController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $list_itens_mistura = ItemMistura::with('ingredientes')->with('nutrientes')->where('id_mistura', '=', $id)->get();
+
+        return view('mistura.itens.add_itens_mistura', ['id_mistura' => $id, 'list_itens_mistura' => $list_itens_mistura]);
     }
 
     /**
