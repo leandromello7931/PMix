@@ -15,6 +15,7 @@
         "laravel-mix": "^2.0"
     },
     "dependencies": {
+        "jquery": "^3.3.1",
         "material-components-web": "^0.39.3"
     }
 }

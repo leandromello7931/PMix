@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,900"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <!-- endinject -->
         <style>
         body {
@@ -66,7 +67,7 @@
                   </main>
             </main>
         </div>
-        
+    	
 		<script src="{{ asset('js/app.js') }}"></script>
 		<script src="{{ asset('js/mdl-chips-input.js') }}"></script>
 		<script src="{{asset('js/demo.js')}}"></script>

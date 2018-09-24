@@ -15,13 +15,15 @@
                         <tr>
                             <th class="mdl-data-table__cell--non-numeric">ID</th>
                             <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
                             @foreach ($misturas as $mistura)
                             <tr>
-                            <td class="mdl-data-table__cell--non-numeric">{{ $mistura->id }}</td>
+                                <td class="mdl-data-table__cell--non-numeric">{{ $mistura->id }}</td>
                                 <td class="mdl-data-table__cell--non-numeric">{{ $mistura->nome }}</td>
+                                <td><a class="btn btn-light " href="/mistura/itens/{{$mistura->id}}/edit" role="button">Edit</a></td>
                             </tr>
                             @endforeach
                         </tbody>

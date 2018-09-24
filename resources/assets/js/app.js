@@ -5,7 +5,6 @@
  * application frontend using useful Laravel and JavaScript libraries.
  */
 
-
 require ("material-components-web/index");
  import {MDCRipple} from '@material/ripple';
  import {MDCList} from "@material/list";
