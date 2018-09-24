@@ -20,7 +20,8 @@
                     <tr>
                         <td class="mdl-data-table__cell--non-numeric"> {{ $itens_mistura->ingredientes->nome }}</td> 
                         <td class="mdl-data-table__cell--non-numeric"> {{ $itens_mistura->nutrientes->nome}}</td>
-                        <td class="mdl-data-table__cell--non-numeric "><input class="valor_item_mistura" name= "valor_ingredxnutr[]" type="text" value="{{ $itens_mistura->valor_ingredxnutr }}"/></td>
+                        
+                    <td class="mdl-data-table__cell--non-numeric "><input type="text" name="id_item_mistura[]" value="{{ $itens_mistura->id}}"><input class="valor_item_mistura" name= "valor_ingredxnutr[]" type="text" value="{{ $itens_mistura->valor_ingredxnutr }}"/></td>
                     </tr>
                     @endforeach
                 </tbody>

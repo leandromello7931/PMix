@@ -15,5 +15,4 @@ Route::resource('mistura', 'MisturaController');
 
 Route::resource('mistura/itens', 'ItemMisturaController');
 
-
 Route::get('/', 'MisturaController@index');
