@@ -13,4 +13,9 @@ class Ingrediente extends Model
     ];
 
     protected $table = 'ingredientes';
+
+    public function itens_mistura(){
+            return $this->hasMany('App\ItemMistura', 'id_ingrediente', 'id');
+    }
+    
 }
