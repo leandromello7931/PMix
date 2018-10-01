@@ -1,33 +1,47 @@
 @extends('template.app')
 
 @section('content')
-
-        {{-- <div class="mdl-grid mdl-cell mdl-cell--8-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone mdl-cell--top "> --}}
-                <a href={{('/mistura/create')}} class="mdc-button mdc-button--raised">
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
-                    Nova Mistura
-                </a>
-                <!-- Table-->
-                <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone ">
-                    {{-- <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp projects-table"> --}}
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                        <thead>
+<div class="col-md-12">
+        <div class="card ">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                            <h2 class="card-title mt-2"> Misturas </h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a class="btn btn-fill btn-primary float-right" href={{('/mistura/create')}} >
+                            <i class="tim-icons icon-simple-add" aria-hidden="true"></i>
+                            Nova Mistura
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+          <div class="card-body">
+            <div class="table-responsive">
+                
+                <table class="table tablesorter " id="">                        
+                    <thead class=" text-primary">
                         <tr>
-                            <th class="mdl-data-table__cell--non-numeric">ID</th>
-                            <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                            <th class="">ID</th>
+                            <th class="text-center">Nome</th>
                             <th></th>
                         </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($misturas as $mistura)
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">{{ $mistura->id }}</td>
-                                <td class="mdl-data-table__cell--non-numeric">{{ $mistura->nome }}</td>
-                                <td><a class="btn btn-light " href="/mistura/itens/{{$mistura->id}}/edit" role="button">Edit</a></td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            {{-- </div> --}}
+                    </thead>
+                    <tbody>
+                        @foreach ($misturas as $mistura)
+                        <tr>
+                            <td class="">{{ $mistura->id }}</td>
+                            <td class="text-center">{{ $mistura->nome }}</td>
+                            <td class="text-right">
+                                    <a class="text-white" href="/mistura/itens/{{$mistura->id}}/edit">
+                                            <i class=" tim-icons icon-pencil"></i>
+                                    </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
 @endsection
