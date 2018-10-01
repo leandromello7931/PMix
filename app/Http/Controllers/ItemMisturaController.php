@@ -102,6 +102,10 @@ class ItemMisturaController extends Controller
         $list_itens_mistura = ItemMistura::where('id_mistura', '=', $id)->get();
         dd($request->id_item_mistura);
         dd( $list_itens_mistura);
+
+        foreach($list_itens_mistura as $list_itens){
+            
+        }
     }
 
     /**
