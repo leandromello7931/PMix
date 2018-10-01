@@ -11,9 +11,16 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/black-dashboard.js?v=1.0.0" type="text/javascript"></script>
     <script src="../assets/demo/demo.js"></script>
+    <script src="../assets/js/tagInput.js"></script>
     <script>
         $(document).ready(function() {
+          $('#tags').tagInput();
           $().ready(function() {
+
+            $('.labelinput').focus(function(){
+                console.log('ola');
+            });
+
             $sidebar = $('.sidebar');
             $navbar = $('.navbar');
   
@@ -128,4 +135,4 @@
           demo.initDashboardPageCharts();
   
         });
-      </script>
+	</script>
