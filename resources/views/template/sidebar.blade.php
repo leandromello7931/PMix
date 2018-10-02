@@ -4,36 +4,36 @@
   -->
     <div class="sidebar-wrapper">
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
+        <a href="/" class="simple-text logo-mini">
+          LM
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+        <a href="/" class="simple-text logo-normal">
+          Leandro Mello
         </a>
       </div>
       <ul class="nav">
         <li class="active ">
-          <a href="./dashboard.html">
+          <a href="/">
             <i class="tim-icons icon-chart-pie-36"></i>
-            <p>Dashboard</p>
+            <p>Misturas</p>
           </a>
         </li>
         <li>
           <a href="./icons.html">
             <i class="tim-icons icon-atom"></i>
-            <p>Icons</p>
+            <p>Ingredientes</p>
           </a>
         </li>
         <li>
           <a href="./map.html">
             <i class="tim-icons icon-pin"></i>
-            <p>Maps</p>
+            <p>Nutrientes</p>
           </a>
         </li>
         <li>
           <a href="./notifications.html">
             <i class="tim-icons icon-bell-55"></i>
-            <p>Notifications</p>
+            <p>Restrições</p>
           </a>
         </li>
         <li>

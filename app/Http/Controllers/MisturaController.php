@@ -48,7 +48,7 @@ class MisturaController extends Controller
         foreach(explode(',', $request->ingredientes) as $ingredientes){
             $idIngredientes[] = Ingrediente::firstOrCreate([
                 'nome' => $ingredientes,
-                'custo' => 0
+               
                 ]);
         }
 

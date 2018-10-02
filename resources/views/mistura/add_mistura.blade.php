@@ -27,7 +27,7 @@
                         <div class="form-group" >
                             <label for="ingrediente-nome">Ingredientes</label>
                             <div class="form-control tags" id="tags">
-                                <input type="hidden"  name="result" value="">
+                                <input autocomplete="something-new" type="hidden"  name="result" value="">
                                 <input class="labelinput " id="ingrediente-nome" type="text" >
                             </div>
                             

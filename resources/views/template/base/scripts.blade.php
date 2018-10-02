@@ -11,14 +11,23 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/black-dashboard.js?v=1.0.0" type="text/javascript"></script>
     <script src="../assets/demo/demo.js"></script>
-    <script src="../assets/js/tagInput.js"></script>
+	<script src="../assets/js/tagInput.js"></script>
+	<script src="https://terrylinooo.github.io/jquery.disableAutoFill/assets/js/jquery.disableAutoFill.min.js"></script>
+
     <script>
         $(document).ready(function() {
           $('#tags').tagInput();
+		  $('form').disableAutoFill();
           $().ready(function() {
 
             $('.labelinput').focus(function(){
-                console.log('ola');
+              $(this).parent().addClass("tags-hover");
+
+            });
+
+			$('.labelinput').blur(function(){
+              $(this).parent().removeClass("tags-hover");
+
             });
 
             $sidebar = $('.sidebar');

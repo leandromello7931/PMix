@@ -53,6 +53,15 @@
   padding: 0 !important;
 }
 
+.tags-hover{
+  border-color: #f96332;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: 0 !important;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .labelinput{
   outline: none;
   border: none;
