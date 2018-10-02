@@ -1,7 +1,7 @@
 @extends('template.app')
 
 @section('content')
-    <div class="col-md-8 col-sm-7">
+    <div class="col-md-8 col-sm-7 d-flex justify-content-center">
         <div class="card">
             <div class="card-header">
                 <h5 class="title">Dados da Mistura</h5>
@@ -65,12 +65,6 @@
                     Button
                 </button>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-sm-5">
-        <div class="card  card-user">
-            <div class="card-body ">
             </div>
         </div>
     </div>
