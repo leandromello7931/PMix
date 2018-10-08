@@ -4,8 +4,8 @@
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 <!-- CSS Files -->
 <!-- Nucleo Icons -->
-<link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+<link href="{{asset('assets/css/nucleo-icons.css')}}" rel="stylesheet" />
 <!-- CSS Files -->
-<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-<link href="../assets/demo/demo.css" rel="stylesheet" />
+<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+<link href="{{asset('assets/css/black-dashboard.css?v=1.0.0')}}" rel="stylesheet" />
+<link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet"/>

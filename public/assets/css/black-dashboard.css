@@ -1617,7 +1617,7 @@ fieldset[disabled] .btn-link.active {
 .form-control {
   border-color: #2b3553;
   background-color: transparent;
-  border-radius: 0.4285rem;
+  border-radius: 0.285rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: normal;
   font-size: 0.8571em;

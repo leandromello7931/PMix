@@ -17,7 +17,8 @@
 					</div>
 				</div>
 				{{-- @include('template.footer') --}}
-        	</div>
+			</div>
+			@include("template.custom")
         </div>
     	
 		@include('template.base.scripts')

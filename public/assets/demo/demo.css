@@ -69,6 +69,15 @@
   padding: 10px 18px 10px 18px;
   color: rgba(255, 255, 255, 0.8);
 }
+.input-table{
+  border: none;
+  background-color: #1e1e2f;
+  width: 25%;
+}
+
+.input-table:focus{
+  background-color: #1e1e2f;
+}
 
 @media all and (min-width: 992px) {
   .sidebar .nav>li.active-pro {
