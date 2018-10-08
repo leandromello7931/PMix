@@ -94,7 +94,7 @@
                 </div>
             </div>
         @endif
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Confirmar</button>
     </form>
 </div>
     <script>

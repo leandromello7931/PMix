@@ -11,8 +11,17 @@
 |
 */
 
-Route::resource('mistura', 'MisturaController');
+Route::group(['middleware' => 'auth'], function () {
 
-Route::resource('mistura/itens', 'ItemMisturaController');
+    
+    Route::resource('mistura', 'MisturaController');
 
-Route::get('/', 'MisturaController@index');
+    Route::resource('mistura/itens', 'ItemMisturaController');
+
+    Route::get('/', 'MisturaController@index');
+
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
