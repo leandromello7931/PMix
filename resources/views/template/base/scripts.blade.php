@@ -17,7 +17,7 @@
     <script>
         $(document).ready(function() {
           $('#tags').tagInput();
-		  $('form').disableAutoFill();
+		      $('form').disableAutoFill();
           $().ready(function() {
 
             $('.labelinput').focus(function(){
@@ -25,10 +25,12 @@
 
             });
 
-			$('.labelinput').blur(function(){
+			      $('.labelinput').blur(function(){
               $(this).parent().removeClass("tags-hover");
 
             });
+
+      
 
             $sidebar = $('.sidebar');
             $navbar = $('.navbar');

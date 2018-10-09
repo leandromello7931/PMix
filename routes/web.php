@@ -20,6 +20,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', 'MisturaController@index');
 
+    Route::resource('ingredientes', 'IngredienteController');
+
 });
 
 Auth::routes();

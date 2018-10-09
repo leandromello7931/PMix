@@ -15,7 +15,10 @@ class IngredienteController extends Controller
      */
     public function index()
     {
-        //
+        $list_ingredientes = Ingrediente::paginate(15);
+        return view('ingredientes.index', [
+            'ingredientes' => $list_ingredientes
+        ]);
     }
 
     /**
@@ -25,7 +28,7 @@ class IngredienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('ingredientes.add_ingrediente');
     }
 
     /**
@@ -37,10 +40,12 @@ class IngredienteController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'nome' => $request('nome'),
-            'custo' => $request('custo')
+            'nome' => $request->nome,
+            'custo' => $request->custo
         ];
-        Ingredientes::create($data);
+        Ingrediente::create($data);
+
+        return redirect()->action('IngredienteController@index');
     }
 
     /**
@@ -62,7 +67,8 @@ class IngredienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ingrediente = Ingrediente::find($id);
+        return view('ingredientes.edit_ingrediente')->with('ingrediente', $ingrediente);
     }
 
     /**

@@ -12,14 +12,14 @@
         </a>
       </div>
       <ul class="nav">
-        <li class="active ">
+      <li class="{{ url()->current()==url('/') ? 'active': ''}}">
           <a href="/">
             <i class="tim-icons icon-chart-pie-36"></i>
             <p>Misturas</p>
           </a>
         </li>
-        <li>
-          <a href="./icons.html">
+        <li class="{{ url()->current()==url('/ingredientes') ? 'active': ''}}">
+          <a href="/ingredientes">
             <i class="tim-icons icon-atom"></i>
             <p>Ingredientes</p>
           </a>
@@ -39,25 +39,7 @@
         <li>
           <a href="./user.html">
             <i class="tim-icons icon-single-02"></i>
-            <p>User Profile</p>
-          </a>
-        </li>
-        <li>
-          <a href="./tables.html">
-            <i class="tim-icons icon-puzzle-10"></i>
-            <p>Table List</p>
-          </a>
-        </li>
-        <li>
-          <a href="./typography.html">
-            <i class="tim-icons icon-align-center"></i>
-            <p>Typography</p>
-          </a>
-        </li>
-        <li>
-          <a href="./rtl.html">
-            <i class="tim-icons icon-world"></i>
-            <p>RTL Support</p>
+            <p>Perfil do Usuário</p>
           </a>
         </li>
       </ul>
