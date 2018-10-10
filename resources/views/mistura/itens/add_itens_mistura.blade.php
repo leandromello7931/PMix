@@ -75,13 +75,15 @@
                             <thead>
                                 <tr>
                                     <th> Nutriente </th>
+                                    <th> Restrição </th>
                                     <th> Valor</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($list_restricoes_nutrientes_mistura as $itens_restricao_nutriente_mistura)
                                 <tr>
-                                    <td> {{ $itens_restricao_nutriente_mistura->nome }}</td> 
+                                    <td> {{ $itens_restricao_nutriente_mistura->nutriente_nome }}</td> 
+                                    <td> {{ $itens_restricao_nutriente_mistura->restricao_nome}}</td>
                                     <td>
                                         <input type="hidden" name="valor_restricao[]" value="{{ $itens_restricao_nutriente_mistura->id}}">
                                         <input class="input-table form-control" placeholder="Ex: 1,23" name= "valor_restricao[]" type="text" value="{{ $itens_restricao_nutriente_mistura->valor_restricao }}"/>

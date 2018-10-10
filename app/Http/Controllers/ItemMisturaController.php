@@ -77,11 +77,12 @@ class ItemMisturaController extends Controller
 
         $list_restricoes_nutrientes_mistura = DB::table('nutrientes')
                                             ->join('misturas_restricoes', 'nutrientes.id', '=', 'misturas_restricoes.id_nutriente')
+                                            ->join('restricoes', 'restricoes.id', '=', 'misturas_restricoes.id_restricao')
                                             ->where('misturas_restricoes.id_mistura', '=', $id)
-                                            ->select('nutrientes.*', 'misturas_restricoes.id', 'misturas_restricoes.valor_restricao')
+                                            ->select('nutrientes.nome as nutriente_nome', 'restricoes.nome as restricao_nome', 'misturas_restricoes.id', 'misturas_restricoes.valor_restricao')
                                             ->distinct()
                                             ->get();
-        // dd($list_restricoes_nutrientes_mistura);
+        //  dd($list_restricoes_nutrientes_mistura);
         return view('mistura.itens.add_itens_mistura', [
             'id_mistura' => $id, 
             'list_itens_mistura' => $list_itens_mistura, 

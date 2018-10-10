@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Nutriente;
+use App\Restricao;
 
-class NutrienteController extends Controller
+class RestricaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class NutrienteController extends Controller
      */
     public function index()
     {
-        $list_nutrientes = Nutriente::paginate(15);
-        return view('nutrientes.index', [
-            'nutrientes' => $list_nutrientes
+        $list_restricoes = Restricao::paginate(15);
+        return view('restricoes.index', [
+            'restricoes' => $list_restricoes
         ]);
     }
 
@@ -28,7 +28,7 @@ class NutrienteController extends Controller
      */
     public function create()
     {
-        return view('nutrientes.add_nutriente');
+        return view('restricoes.add_restricao');
     }
 
     /**
@@ -42,10 +42,9 @@ class NutrienteController extends Controller
         $data = [
             'nome' => $request->nome,
         ];
-        Nutriente::create($data);
+        Restricao::create($data);
 
-        return redirect()->action('NutrienteController@index');
-    
+        return redirect()->action('RestricaoController@index');
     }
 
     /**
@@ -67,9 +66,8 @@ class NutrienteController extends Controller
      */
     public function edit($id)
     {
-        $nutriente = Nutriente::find($id);
-        return view('nutrientes.edit_nutriente')->with('nutriente', $nutriente);
-   
+        $restricao = Restricao::find($id);
+        return view('restricoes.edit_restricao')->with('restricao', $restricao);
     }
 
     /**

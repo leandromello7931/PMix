@@ -26,9 +26,9 @@
                     <div class="col-md-12 pr-md-1">
                         <div class="form-group" >
                             <label for="ingrediente-nome">Ingredientes</label>
-                            <div class="form-control tags" id="tags">
-                                <input autocomplete="something-new" type="hidden"  name="result" value="">
+                            <div class="form-control tags" id="tags_ingredientes">
                                 <input class="labelinput " id="ingrediente-nome" type="text" >
+                                <input  type="hidden"  name="ingredientes" value="">
                             </div>
                             
                             <small id="nameMisturaHelpBlock" class="form-text text-muted">
@@ -40,29 +40,33 @@
                     <br>
                     <div class="col-md-12 pr-md-1">
                         <div class="form-group">
-                            <input type="hidden" class="mdl-chipfield__input" name="nutrientes" value="">
                             <label for="nutriente-nome">Nutrientes</label>
-                            <input class="mdl-textfield__input form-control" id="nutriente-nome" type="text" >
+                            <div class="form-control tags" id="tags_nutrientes">
+                                <input class="labelinput " id="nutriente-nome" type="text" >
+                                <input type="hidden" name="nutrientes" value="">
+                            </div>
                             <small id="nameMisturaHelpBlock" class="form-text text-muted">
-                                    Pressione Enter a cada ingrediente informado.
-                                </small>
+                                Pressione Enter a cada nutriente informado.
+                            </small>
                         </div>
                     </div>
                     <br>
                     <br>
                     <div class="col-md-12 pr-md-1">
                         <div class="form-group">
-                            <input type="hidden" class="mdl-chipfield__input" name="restricoes" value="">
                             <label for="restricoes_nome">Restrições</label>
-                            <input class="mdl-textfield__input form-control" id="restricoes_nome" type="text" >
+                            <div class="form-control tags" id="tags_restricoes">
+                                <input class="labelinput " id="restricoes_nome" type="text" >
+                                <input type="hidden" name="restricoes" value="">
+                            </div>
                             <small id="nameMisturaHelpBlock" class="form-text text-muted">
-                                    Pressione Enter a cada ingrediente informado.
-                                </small>
+                                Pressione Enter a cada restrição informada.
+                            </small>
                         </div>
                     </div>
 
                 <button type="submit" class="btn btn-primary">
-                    Button
+                    Salvar
                 </button>
                 </form>
             </div>

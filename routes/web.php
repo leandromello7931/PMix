@@ -22,6 +22,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('ingredientes', 'IngredienteController');
 
+    Route::resource('nutrientes', 'NutrienteController');
+
+    Route::resource('restricoes', 'RestricaoController');
+
 });
 
 Auth::routes();

@@ -24,14 +24,14 @@
             <p>Ingredientes</p>
           </a>
         </li>
-        <li>
-          <a href="./map.html">
+        <li class="{{ url()->current()==url('/nutrientes') ? 'active': ''}}">
+          <a href="/nutrientes">
             <i class="tim-icons icon-pin"></i>
             <p>Nutrientes</p>
           </a>
         </li>
-        <li>
-          <a href="./notifications.html">
+        <li class="{{ url()->current()==url('/restricoes') ? 'active': ''}}">
+          <a href="/restricoes">
             <i class="tim-icons icon-bell-55"></i>
             <p>Restrições</p>
           </a>

@@ -34,7 +34,7 @@ class CreateItensMisturaTable extends Migration
                     ->on('nutrientes')
                     ->onDelete('cascade');
 
-            $table->float('valor_ingredxnutr', 8, 2);
+            $table->float('valor_ingredxnutr', 8, 2)->nullable();
             $table->timestamps();
         });
     }
