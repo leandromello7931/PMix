@@ -5,17 +5,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<meta name="csrf-token" content="{{ csrf_token()}}">
+		<!-- CSRF Token -->
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+
 
 		@include('template.base.css')
     </head>
     <body class=" ">
 		<div class="wrapper ">
+
         	@include('template.sidebar')
         	<div class="main-panel">
 				@include('template.navbar')
 				<div class="content">
 					<div class="row">
+						
 						@yield('content')
 					</div>
 				</div>

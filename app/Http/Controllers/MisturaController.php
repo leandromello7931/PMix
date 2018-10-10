@@ -48,11 +48,10 @@ class MisturaController extends Controller
         foreach(explode(',', $request->ingredientes) as $ingredientes){
             $idIngredientes[] = Ingrediente::firstOrCreate([
                 'nome' => $ingredientes,
-               
+                'custo' => null
                 ]);
         }
 
-        
         //insert into table nutrientes
         foreach(explode(',', $request->nutrientes) as $nutrientes){
             $idNutrientes[] = Nutriente::firstOrCreate(
@@ -71,8 +70,6 @@ class MisturaController extends Controller
             );
         }
 
-
-    
         //insert into table mistura
         $idMistura = DB::table('misturas')->insertGetId(
             ['nome' => $request->nomeMistura]
@@ -85,7 +82,7 @@ class MisturaController extends Controller
                     'id_mistura' => $idMistura, 
                     'id_ingrediente' => $ingrediente_item->id, 
                     'id_nutriente' => $nutriente_item->id, 
-                    'valor_ingredxnutr' => 0
+                    'valor_ingredxnutr' => null
                 ]);
             }
         }
@@ -97,7 +94,7 @@ class MisturaController extends Controller
                     'id_mistura' => $idMistura,
                     'id_nutriente' => $nutriente_item->id,
                     'id_restricao' => $restricao_item->id,
-                    'valor_restricao' => 0
+                    'valor_restricao' => null
                 ]);
             }
         }

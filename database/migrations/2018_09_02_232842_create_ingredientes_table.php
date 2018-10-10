@@ -16,7 +16,7 @@ class CreateIngredientesTable extends Migration
         Schema::create('ingredientes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->float('custo', 8, 2);
+            $table->float('custo', 8, 2)->nullable();
             $table->timestamps();
         });
     }

@@ -16,8 +16,10 @@
 
     <script>
         $(document).ready(function() {
-          $('#tags').tagInput();
-		      $('form').disableAutoFill();
+          $('#tags_ingredientes').tagInput();
+          $('#tags_nutrientes').tagInput();
+          $('#tags_restricoes').tagInput();
+		      // $('form').disableAutoFill();
           $().ready(function() {
 
             $('.labelinput').focus(function(){

@@ -34,7 +34,7 @@ class CreateMisturaRestricaoTable extends Migration
                     ->on('restricoes')
                     ->onDelete('cascade');
 
-            $table->float('valor_restricao', 8, 2);
+            $table->float('valor_restricao', 8, 2)->nullable();
 
             $table->timestamps();
         });
