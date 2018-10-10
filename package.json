@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "jquery": "^3.3.1",
-        "material-components-web": "^0.39.3"
+        "material-components-web": "^0.39.3",
+        "npm": "^6.4.1"
     }
 }
