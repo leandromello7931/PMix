@@ -24,6 +24,7 @@ class CreateMisturaRestricaoTable extends Migration
                 ->on('misturas')
                 ->onDelete('cascade');
 
+            
             $table->foreign('id_nutriente')
                     ->references('id')
                     ->on('nutrientes')
