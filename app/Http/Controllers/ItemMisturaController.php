@@ -101,13 +101,65 @@ class ItemMisturaController extends Controller
     public function update($id, Request $request)
     {   
         $list_itens_mistura = ItemMistura::where('id_mistura', '=', $id)->get();
-        dd($request->id_item_mistura);
-        dd( $list_itens_mistura);
+        //dd($request->custo);
+        // $list = [
+        //     "FO(Z)" => $request->custo,
+        //     ""
+        // ];
+        $curl_post_data = [
+            "RestrictionCount"=> "3",
+            "VariableCount"=> "2",
+            "FO(Z)" => "65, 30",
+            "R0" => "2,3",
+            "R0r" => "7", 
+            "R1" => "3,2",
+            "R1r" => "9",
+            "R2" => "1,0",
+            "R2r" =>"1"
+        ];
+        $curl = curl_init();
 
-        foreach($list_itens_mistura as $list_itens){
-            
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "http://localhost:8080/Simplex_WS/webresources/simplex",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30000,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => json_encode($curl_post_data),
+            CURLOPT_HTTPHEADER => array(
+                // Set here requred headers
+                "accept: */*",
+                "content-type: application/json",
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            $resultado = json_decode($response);
+            sleep(4);
+            return view('mistura.resultado.resultado_mistura');
         }
     }
+
+    // {
+    //     "RestrictionCount": "3",
+    //     "VariableCount": "2",
+    //     "FO(Z)": "65, 30",
+    //     "R0": "2,3",
+    //     "R0r" : "7", 
+    //     "R1": "3,2",
+    //     "R1r": "9",
+    //     "R2": "1,0",
+    //     "R2r":"1"
+    // }
 
     /**
      * Remove the specified resource from storage.
