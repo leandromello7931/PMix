@@ -56,11 +56,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'problema_mistura'),
+            'username' => env('DB_USERNAME', 'pmix_adm'),
+            'password' => env('DB_PASSWORD', 'pmixao6106'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
