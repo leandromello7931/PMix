@@ -108,3 +108,12 @@ a.closelabel {
   outline: none;
   text-decoration: none;
 }
+.btn-grid{
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.inline-block{
+  display: inline-block;
+}
