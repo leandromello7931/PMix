@@ -1,10 +1,10 @@
 <?php
     $url = parse_url(getenv("DATABASE_URL"));
 
-    // $host = $url["host"];
-    // $username = $url["user"];
-    // $password = $url["pass"];
-    // $database = substr($url["path"], 1);
+    $host = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"], 1);
 
 
 return [
@@ -19,8 +19,8 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-    'default' => env('DB_CONNECTION', 'mysql'),
-    //'default' => 'pgsql', 
+    //'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => 'pgsql', 
 
 
     /*
@@ -62,17 +62,17 @@ return [
             'engine' => null,
         ],
 
-        // 'pgsql' => [
-        //     'driver'   => 'pgsql',
-        //     'host'     => $host,
-        //     'database' => $database,
-        //     'username' => $username,
-        //     'password' => $password,
-        //     'charset'  => 'utf8',
-        //     'prefix'   => '',
-        //     'schema'   => 'public',
-        //     'sslmode' => 'prefer',
-        // ],
+        'pgsql' => [
+            'driver'   => 'pgsql',
+            'host'     => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+            'sslmode' => 'prefer',
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
