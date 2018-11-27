@@ -6,7 +6,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                            <h2 class="card-title mt-2"> Restrições </h2>
+                            <h4 class="card-title mt-2"> Restrições </h4>
                     </div>
                     <div class="col-sm-6">
                         <a class="btn btn-fill btn-primary float-right" href={{('/restricoes/create')}} >
@@ -34,9 +34,22 @@
                             <td class="">{{ $restricao->id }}</td>
                             <td class="text-center">{{ $restricao->nome }}</td>
                             <td class="text-right">
-                                    <a class="text-white" href="/ingredientes/{{$restricao->id}}/edit">
+                                <button class="btn-grid btn-warning">
+                                    <a class="text-white" href="/restricoes/{{$restricao->id}}/edit">
                                             <i class=" tim-icons icon-pencil"></i>
                                     </a>
+                                </button>
+                                <div class="inline-block">
+                                    <form method="POST" action="/restricoes/{{$restricao->id}}">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn-grid btn-danger" type="submit">
+                                        <a class="text-white" href="">
+                                            <i class=" tim-icons icon-trash-simple"></i>
+                                        </a>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

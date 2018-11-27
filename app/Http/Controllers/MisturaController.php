@@ -46,28 +46,52 @@ class MisturaController extends Controller
     {
         // insert into ingredientes table
         foreach(explode(',', $request->ingredientes) as $ingredientes){
-            $idIngredientes[] = Ingrediente::firstOrCreate([
-                'nome' => $ingredientes,
-                'custo' => null
+            $ingrediente_db = DB::table('ingredientes')
+            ->where ('nome', '=', $ingredientes)
+            ->select('id', 'nome', 'custo')
+            ->get();
+
+            if (count($ingrediente_db) > 0){
+                $idIngredientes[] = $ingrediente_db->values()->get(0);
+            }else{
+                $idIngredientes[] = Ingrediente::firstOrCreate([
+                    'nome' => $ingredientes,
+                    'custo' => null
                 ]);
+            }
+            
         }
 
         //insert into table nutrientes
         foreach(explode(',', $request->nutrientes) as $nutrientes){
-            $idNutrientes[] = Nutriente::firstOrCreate(
-                ['nome' => $nutrientes]
-            );
-        }
+            $nutriente_db = DB::table('nutrientes')
+            ->where ('nome', '=', $nutrientes)
+            ->select('id', 'nome')
+            ->get();
 
-        // foreach ($idNutrientes as $nutriente_item){
-        //     print_r($nutriente_item->id);
-        // }
+            if (count($nutriente_db) > 0){
+                $idNutrientes[] = $nutriente_db->values()->get(0);
+            }else{
+                $idNutrientes[] = Nutriente::firstOrCreate(
+                    ['nome' => $nutrientes]
+                );
+            }
+        }
 
         //insert into table restricoes
         foreach(explode(',', $request->restricoes) as $restricoes){
-            $idRestricoes[] = Restricao::firstOrCreate(
-                ['nome' => $restricoes]
-            );
+            $restricoes_db = DB::table('restricoes')
+            ->where ('nome', '=', $restricoes)
+            ->select('id', 'nome')
+            ->get();
+
+            if (count($restricoes_db) > 0){
+                $idRestricoes[] = $restricoes_db->values()->get(0);
+            }else{
+                $idRestricoes[] = Restricao::firstOrCreate(
+                    ['nome' => $restricoes]
+                );
+            }
         }
 
         //insert into table mistura

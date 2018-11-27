@@ -1,12 +1,12 @@
 @extends('template.app')
 
 @section('content')
-<div class="col-md-12">
+<div class="col-md-12  ml-auto mr-auto">
         <div class="card ">
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                            <h2 class="card-title mt-2"> Ingredientes </h2>
+                            <h4 class="card-title mt-2">Lista de Ingredientes </h4>
                     </div>
                     <div class="col-sm-6">
                         <a class="btn btn-fill btn-primary float-right" href={{ ('/ingredientes/create') }} >
@@ -23,7 +23,7 @@
                 <table class="table tablesorter " id="">                        
                     <thead class=" text-primary">
                         <tr>
-                            <th class="">ID</th>
+                            <!-- <th class="">ID</th> -->
                             <th class="text-center">Nome</th>
                             <th class="text-center">Custo</th>
                             <th></th>
@@ -32,7 +32,7 @@
                     <tbody>
                         @foreach ($ingredientes as $ingrediente)
                         <tr>
-                            <td class="">{{ $ingrediente->id }}</td>
+                            <!-- <td class="">{{ $ingrediente->id }}</td> -->
                             <td class="text-center">{{ $ingrediente->nome }}</td>
                             <td class="text-center">{{  $ingrediente->custo }}</td>
                             <td class="text-right">
