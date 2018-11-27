@@ -15,7 +15,7 @@ class RestricaoController extends Controller
      */
     public function index()
     {
-        $list_restricoes = Restricao::paginate(15);
+        $list_restricoes = Restricao::paginate(25);
         return view('restricoes.index', [
             'restricoes' => $list_restricoes
         ]);
@@ -39,12 +39,16 @@ class RestricaoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'nome' => 'required'
+        ]);
+
         $data = [
             'nome' => $request->nome,
         ];
         Restricao::create($data);
 
-        return redirect()->action('RestricaoController@index');
+        return redirect()->action('RestricaoController@index')->with('success', 'Restrição adicionada com sucesso');
     }
 
     /**
@@ -79,7 +83,17 @@ class RestricaoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'nome' => 'required'
+        ]);
+
+        //update nutriente
+        $restricao = Restricao::find($id);
+        $restricao->nome = $request->input('nome');
+        $restricao->save();
+
+        return redirect()->action('RestricaoController@index')->with('success', 'Restrição atualizada com sucesso');
+
     }
 
     /**
@@ -90,6 +104,9 @@ class RestricaoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $restricao = Restricao::find($id);
+        $restricao->delete();
+        return redirect()->action('RestricaoController@index')->with('success', 'Restrição excluída com sucesso');
+    
     }
 }

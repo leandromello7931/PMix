@@ -15,7 +15,7 @@ class NutrienteController extends Controller
      */
     public function index()
     {
-        $list_nutrientes = Nutriente::paginate(15);
+        $list_nutrientes = Nutriente::paginate(25);
         return view('nutrientes.index', [
             'nutrientes' => $list_nutrientes
         ]);
@@ -39,12 +39,16 @@ class NutrienteController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'nome' => 'required'
+        ]);
+
         $data = [
             'nome' => $request->nome,
         ];
         Nutriente::create($data);
 
-        return redirect()->action('NutrienteController@index');
+        return redirect()->action('NutrienteController@index')->with('success', 'Nutriente adicionado com sucesso');
     
     }
 
@@ -81,7 +85,16 @@ class NutrienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'nome' => 'required'
+        ]);
+
+        //update nutriente
+        $nutriente = Nutriente::find($id);
+        $nutriente->nome = $request->input('nome');
+        $nutriente->save();
+
+        return redirect()->action('NutrienteController@index')->with('success', 'Nutriente atualizado com sucesso');
     }
 
     /**
@@ -92,6 +105,9 @@ class NutrienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $nutriente = Nutriente::find($id);
+        $nutriente->delete();
+        return redirect()->action('NutrienteController@index')->with('success', 'Nutriente excluído com sucesso');
+    
     }
 }

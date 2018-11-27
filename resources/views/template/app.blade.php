@@ -18,8 +18,8 @@
         	<div class="main-panel">
 				@include('template.navbar')
 				<div class="content">
+					@include('template.messages')
 					<div class="row">
-						
 						@yield('content')
 					</div>
 				</div>

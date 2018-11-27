@@ -39,13 +39,18 @@ class IngredienteController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'nome' => 'required',
+            'custo' => 'required'
+        ]);
+
         $data = [
             'nome' => $request->nome,
             'custo' => $request->custo
         ];
         Ingrediente::create($data);
 
-        return redirect()->action('IngredienteController@index');
+        return redirect()->action('IngredienteController@index')->with('success', 'Ingrediente adicionado com sucesso');
     }
 
     /**
@@ -80,7 +85,18 @@ class IngredienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'nome' => 'required',
+            'custo' => 'required'
+        ]);
+
+        //update ingrediente
+        $ingrediente = Ingrediente::find($id);
+        $ingrediente->nome = $request->input('nome');
+        $ingrediente->custo = $request->input('custo');
+        $ingrediente->save();
+
+        return redirect()->action('IngredienteController@index')->with('success', 'Ingrediente atualizado com sucesso');
     }
 
     /**
@@ -91,6 +107,8 @@ class IngredienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ingrediente = Ingrediente::find($id);
+        $ingrediente->delete();
+        return redirect()->action('IngredienteController@index')->with('success', 'Ingrediente excluído com sucesso');
     }
 }
