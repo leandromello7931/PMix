@@ -23,7 +23,7 @@
                 <table class="table tablesorter " id="">                        
                     <thead class=" text-primary">
                         <tr>
-                            <th class="">ID</th>
+                            <!-- <th class="">ID</th> -->
                             <th class="text-center">Nome</th>
                             <th></th>
                         </tr>
@@ -31,7 +31,7 @@
                     <tbody>
                         @foreach ($nutrientes as $nutriente)
                         <tr>
-                            <td class="">{{ $nutriente->id }}</td>
+                            <!-- <td class="">{{ $nutriente->id }}</td> -->
                             <td class="text-center">{{ $nutriente->nome }}</td>
                             <td class="text-right">
                                 <button class="btn-grid btn-warning">

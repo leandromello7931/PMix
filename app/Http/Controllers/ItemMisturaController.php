@@ -12,6 +12,8 @@ use App\Mistura;
 
 use DB;
 
+use Illuminate\Support\Str;
+
 class ItemMisturaController extends Controller
 {
     /**
@@ -100,13 +102,89 @@ class ItemMisturaController extends Controller
      */
     public function update($id, Request $request)
     {   
-        $list_itens_mistura = ItemMistura::where('id_mistura', '=', $id)->get();
-        dd($request->id_item_mistura);
-        dd( $list_itens_mistura);
+        $this->validate($request,[
+            'custo' => 'required',
+            'valor_ingredxnutr' => 'required',
+            'valor_restricao' => 'required'
+        ]);
 
-        foreach($list_itens_mistura as $list_itens){
+
+        for ($i=0; $i<count($request->id_ingrediente); $i++){
+            $data = ['custo'=> $request->custo[$i]];
             
+            DB::table('ingredientes')->where('id', $request->id_ingrediente[$i])
+            ->update($data);
         }
+
+        for($i=0; $i<count($request->id_item_mistura); $i++){
+            $data = ['valor_ingredxnutr' => $request->valor_ingredxnutr[$i]];
+            
+            DB::table('itens_mistura')->where('id', $request->id_item_mistura[$i])
+            ->update($data);
+        }
+
+        for($i=0; $i<count($request->id_restricao); $i++){
+            $data = ['valor_restricao' => $request->valor_restricao[$i]];
+            
+            DB::table('misturas_restricoes')->where('id', $request->id_restricao[$i])
+            ->update($data);
+        }
+
+        //seleciona os nutrientes
+        $id_nutriente_db = DB::table('itens_mistura')
+        ->where('id_mistura', '=', $id)
+        ->select('id_nutriente')
+        ->distinct()
+        ->get();
+
+        //quantidade de nutrientes é a quantidade de restricoes
+        $restrictionCount = count($id_nutriente_db);
+        
+        $data = array();
+
+        $data += ["RestrictionCount" => strval($restrictionCount)];
+        $data += ["VariableCount" => strval(count($request->id_ingrediente))];
+        $data += ["FO(Z)" => $request->custo];
+        $j = 0;
+
+        //percorre itens_mistura para pegar o valor de ingredxnutr de cada nutriente
+        foreach($id_nutriente_db as $item_nutriente_db){
+            $restriction_db = DB::table('itens_mistura')
+            ->where([
+                ['id_mistura', '=', $id],
+                ['id_nutriente', '=', $item_nutriente_db->id_nutriente]
+            ])
+            ->get();
+            
+            for($i=0; $i<$restrictionCount; $i++){
+                $r[] = strval($restriction_db->values()->get($i)->valor_ingredxnutr);
+            }
+            $data += ["R$j" => $r];
+            unset($r);
+            
+
+            $valor_restricao_db = DB::table('misturas_restricoes')
+            ->where([
+                ['id_mistura', '=', $id],
+                ['id_nutriente', '=', $item_nutriente_db->id_nutriente]
+            ])
+            ->get();
+
+            $data += ["Rr$j" => strval($valor_restricao_db->values()->get(0)->valor_restricao)];
+            $j++;
+            // SELECT valor_ingredxnutr FROM `itens_mistura` WHERE id_mistura = 10 and id_nutriente = 4
+        }
+
+
+        $data_json = json_encode($data);
+        //dd($data_json);
+      
+        var_dump($data_json);
+        $url = "http://localhost:8084/testrestfullapi/webresources/test/getdata";
+
+        $result = $this->CallAPI("POST", $url, $data_json);
+
+        dd($result);
     }
 
     /**
@@ -119,4 +197,38 @@ class ItemMisturaController extends Controller
     {
         //
     }
+
+    function CallAPI($method, $url, $data){
+        $curl = curl_init();
+        switch ($method)
+        {
+            case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+                curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Content-Length: ' . strlen($data))
+                );
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+                break;
+            case "PUT":
+                curl_setopt($curl, CURLOPT_PUT, 1);
+                break;
+            default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+
+        // Optional Authentication:
+        // curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        // curl_setopt($curl, CURLOPT_USERPWD, "username:password");
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($curl);
+        curl_close($curl);
+
+        return $result;
+    }
+
 }

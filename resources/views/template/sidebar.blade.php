@@ -36,12 +36,12 @@
             <p>Restrições</p>
           </a>
         </li>
-        <li>
+        <!-- <li>
           <a href="./user.html">
             <i class="tim-icons icon-single-02"></i>
             <p>Perfil do Usuário</p>
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

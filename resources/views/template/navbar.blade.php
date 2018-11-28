@@ -32,13 +32,13 @@
 						</p>
           			</a>
           			<ul class="dropdown-menu dropdown-navbar">
-						<li class="nav-link">
+						<!-- <li class="nav-link">
 						<a href="#" class="nav-item dropdown-item">Profile</a>
 						</li>
 						<li class="nav-link">
 						<a href="#" class="nav-item dropdown-item">Settings</a>
 						</li>
-            			<div class="dropdown-divider"></div>
+            			<div class="dropdown-divider"></div> -->
             			<li class="nav-link">
 							<a class="dropdown-item" href="{{ route('logout') }}"
 								onclick="event.preventDefault();

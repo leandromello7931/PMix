@@ -89,7 +89,7 @@
           </div>
           <div class="row mt-3">
             <div class="col-6">
-              <a class="text-light" href="{{ route('password.request') }}"><small>Esqueceu sua senha?</small></a>
+              <a class="text-light" href="#"><small>Esqueceu sua senha?</small></a>
             </div>
             <div class="col-6 text-right">
               <a href="{{ route('register') }}" class="text-light"><small>Criar nova conta</small></a>

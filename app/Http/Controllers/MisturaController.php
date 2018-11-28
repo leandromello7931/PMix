@@ -44,6 +44,12 @@ class MisturaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'ingredientes' => 'required',
+            'nutrientes' => 'required',
+            'restricoes' => 'required'
+        ]);
+
         // insert into ingredientes table
         foreach(explode(',', $request->ingredientes) as $ingredientes){
             $ingrediente_db = DB::table('ingredientes')
@@ -168,6 +174,9 @@ class MisturaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mistura = Mistura::find($id);
+        $mistura->delete();
+        return redirect()->action('MisturaController@index')->with('success', 'Nutriente excluído com sucesso');
+    
     }
 }

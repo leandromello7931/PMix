@@ -85,7 +85,7 @@
                                     <td> {{ $itens_restricao_nutriente_mistura->nutriente_nome }}</td> 
                                     <td> {{ $itens_restricao_nutriente_mistura->restricao_nome}}</td>
                                     <td>
-                                        <input type="hidden" name="valor_restricao[]" value="{{ $itens_restricao_nutriente_mistura->id}}">
+                                        <input type="hidden" name="id_restricao[]" value="{{ $itens_restricao_nutriente_mistura->id}}">
                                         <input class="input-table form-control" placeholder="Ex: 1,23" name= "valor_restricao[]" type="text" value="{{ $itens_restricao_nutriente_mistura->valor_restricao }}"/>
                                     </td>
                                 </tr>

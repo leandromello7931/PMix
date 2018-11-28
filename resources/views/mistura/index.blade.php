@@ -23,7 +23,7 @@
                 <table class="table tablesorter " id="">                        
                     <thead class=" text-primary">
                         <tr>
-                            <th class="">ID</th>
+                            <!-- <th class="">ID</th> -->
                             <th class="text-center">Nome</th>
                             <th></th>
                         </tr>
@@ -31,12 +31,25 @@
                     <tbody>
                         @foreach ($misturas as $mistura)
                         <tr>
-                            <td class="">{{ $mistura->id }}</td>
+                            <!-- <td class="">{{ $mistura->id }}</td> -->
                             <td class="text-center">{{ $mistura->nome }}</td>
                             <td class="text-right">
+                                <button class="btn-grid btn-warning">
                                     <a class="text-white" href="/mistura/itens/{{$mistura->id}}/edit">
                                             <i class=" tim-icons icon-pencil"></i>
                                     </a>
+                                </button>
+                                <div class="inline-block">
+                                    <form method="POST" action="/mistura/{{$mistura->id}}">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn-grid btn-danger" type="submit">
+                                        <a class="text-white" href="">
+                                            <i class=" tim-icons icon-trash-simple"></i>
+                                        </a>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         @endforeach
