@@ -179,12 +179,35 @@ class ItemMisturaController extends Controller
         $data_json = json_encode($data);
         //dd($data_json);
       
-        var_dump($data_json);
+        // var_dump($data_json);
         $url = "http://localhost:8084/testrestfullapi/webresources/test/getdata";
 
-        $result = $this->CallAPI("POST", $url, $data_json);
+        $result_json = $this->CallAPI("POST", $url, $data_json);
 
-        dd($result);
+        $result = json_decode($result_json);
+        if (!$result == null){
+
+            $list_ingredientes_mistura = DB::table('ingredientes')
+            ->join('itens_mistura', 'ingredientes.id', '=', 'itens_mistura.id_ingrediente')
+            ->where('itens_mistura.id_mistura', '=', $id)
+            ->select('ingredientes.*')
+            ->distinct()
+            ->get();
+            
+            for($i=0; $i < count($list_ingredientes_mistura); $i++){
+                print_r($i);
+                $resultado[] = ["nome" => $list_ingredientes_mistura->values()->get($i)->nome,
+                        "valor" => $result[$i]
+            ];
+        
+            }
+     
+     
+            return view('mistura.itens.resultado', [
+                'resultado' => $resultado, 
+                ]);
+        }
+
     }
 
     /**
