@@ -156,7 +156,7 @@ class ItemMisturaController extends Controller
             ])
             ->get();
             
-            for($i=0; $i<$restrictionCount; $i++){
+            for($i=0; $i<count($request->id_ingrediente); $i++){
                 $r[] = strval($restriction_db->values()->get($i)->valor_ingredxnutr);
             }
             $data += ["R$j" => $r];
@@ -186,14 +186,13 @@ class ItemMisturaController extends Controller
 
         $result = json_decode($result_json);
         if (!$result == null){
-
             $list_ingredientes_mistura = DB::table('ingredientes')
             ->join('itens_mistura', 'ingredientes.id', '=', 'itens_mistura.id_ingrediente')
             ->where('itens_mistura.id_mistura', '=', $id)
             ->select('ingredientes.*')
             ->distinct()
             ->get();
-            
+        
             for($i=0; $i < count($list_ingredientes_mistura); $i++){
                 print_r($i);
                 $resultado[] = ["nome" => $list_ingredientes_mistura->values()->get($i)->nome,
@@ -206,6 +205,8 @@ class ItemMisturaController extends Controller
             return view('mistura.itens.resultado', [
                 'resultado' => $resultado, 
                 ]);
+        }else{
+            return view('mistura.itens.resultado', 'resultado', $resultado)->with('error', 'Não foi possível encontrar uma solução ótima para este problema');;
         }
 
     }

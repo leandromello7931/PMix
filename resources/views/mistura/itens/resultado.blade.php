@@ -8,17 +8,17 @@
         </div>
         <div class="card-body">
 
-
-            @foreach($resultado as $item)
-                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                    <div class="card-header"><h3>{{$item['nome']}}</h3></div>
-                    <div class="card-body">
-                        <h5 class="card-title">Quantidade</h5>
-                        <p class="card-text"><h4>{{$item['valor']}} g/kg</h4></p>
+            @if(count($resultado) > 0)
+                @foreach($resultado as $item)
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                        <div class="card-header"><h3>{{$item['nome']}}</h3></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Quantidade</h5>
+                            <p class="card-text"><h4>{{$item['valor']}} g/kg</h4></p>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-
+                @endforeach
+            @endif
             <!-- <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header"><h3>Soja</h3></div>
                 <div class="card-body">
